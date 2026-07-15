@@ -1,0 +1,99 @@
+[중요파일 살펴보기] 교재 45페이지 참고
+
+*package.json
+
+>핵심 설정 파일. 프로젝트명/버전/사용하는 라이브러리/실행할수있는명령어(스크립트)정보
+
+>해당 파일에서 scripts, dependencies, devDependencies 항목이 중요.
+
+>npm run dev 명령어는 해당 파일의 scripts 항목안에 아래와 같은 설정이 있기 때문에
+실행되는것이다.
+
+ "scripts": {
+    "dev": "vite",  --> 실무에서는 dev외에도 start, serve 등 다양한 이름을 사용할수있다.
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+
+>개발 과정에서 외부 라이브러리(패키지)를 설치할 일이 자주 생긴다.
+그럴때는 아래와 같은 명령어 형식을 사용한다.
+
+npm install [패키지명] [--save||--save-dev]
+
+--save 옵션으로 설치하면 dependencies에 등록되고,
+--save-dev 옵션으로 설치하면 devDependencies에 등록된다.
+아무옵션도 넣지 않으면 자동으로 --save가 적용되어 dependencies에 추가된다.
+
+
+*index.html
+
+>터미널에서 npm run dev 명령어를 입력해 개발서버를 실행하면 Vite 개발 서버는 내부적으로
+index.html 파일을 자동으로 로드한다.
+이 파일안에는 리액트 애플리케이션을 실행하는데 필요한 최소한의 html 구조가 들어 있다.
+
+<div id="root"></div>
+>해당 <div> 요소는 리액트 애플리케이션이 화면에 출력되는 위치, 즉 루트요소를 의미한다. 관례적으로 id="root"를
+사용하지만, 다른 이름을 써도 동작하는데 문제는 없다. 단, "main.tsx"에서 동일한 ID로 연결해야 한다.
+
+<script type="module" src="/src/main.tsx"></script>
+>리액트 애플리케이션의 시작점인 main.tsx 파일을 불러오는 코드이다.
+type="module" 속성은 해당 파일 내부에서 모듈 기능 <import, export>을 사용할 수 있게 웹 브라우저에 알려주는 역할을 한다.
+이 스크립트를 통해 리액트 컴포넌트, 상태, 라우터 등 애플리케이션 전체가 실행된다.
+
+
+*main.tsx
+
+>index.html 파일에서 <script type="module" src="/src/main.tsx"></script> 로 main.tsx 파일을 불러오면
+그때부터 리액트 코드가 실행된다.
+
+>해당 파일은 리액트 애플리케이션을 초기화하고 구성하는 역할을 한다.
+
+import { StrictMode } from 'react'
+>StrictMode 는 리액트에서 코드 오류나 비효율적 사용을 알려주는 개발 도구이다.
+화면에는 영향을 주지 않고 오직 개발 모드에서만 동작하며, 코드를 더 안전하게 작성할 수 있도록 도와준다.
+
+import { createRoot } from 'react-dom/client'
+>react-dom/client에서 제공하는 createRoot()는 리액트 18부터 새롭게 추가된 함수이다.
+html에서 가져온 root 요소에 리액트 애플리케이션을 연결하는 역할을 한다.
+
+import App from './App.tsx'
+>App.tsx 파일은 Vite로 리액트 애플리케이션을 생성할 때 자동으로 만들어지는 파일이다.
+이파일에 정의된 App컴포넌트는 애플리케이션을 실행할때 가장 먼저 화면에 표시되는 루트 컴포넌트 역할을 한다.
+main.tsx 파일에서는 이 App 컴포넌트를 불러와 실제로 웹 브라우저에 랜더링한다.
+
+>index.html 에는 <div id="root"></div>라는 태그가 있다.
+이 태그는 리액트 애플리케이션이 표시될 공간을 나타낸다.
+main.tsx 파일에서는 document.getElementById('root')로 이 요소를 가져와 ReactDom.createRoot() 를 사용해
+리액트의 시작점(루트)으로 지정한다.
+그런 다음 App컴포넌트를 <StrictMode>로 감싸 화면에 표시한다.
+
+*";"세미콜론의 부재.
+>굳이 붙이지 않아도 자바스크립트의 Automatic Semicolon Insertion(AS) 기능 덕분에 세미콜론을 안써도 웹 브라우저나 Node.js가
+코드를 해석할 때 자동으로 보완해준다.
+하지만 ECMAScript 표준(ES6) 에서는 import 문 뒤에 세미콜론을 붙이는 것이 문법적으로 권장된다.
+
+
+*****리액트 애플리케이션 전체 실행 과정*****
+1.npm run dev로 개발서버 실행
+2.개발서버는 index.html 파일을 연다.
+3.index.html파일은 main.tsx 파일을 불러온다.
+4.main.tsx 파일에서 App 컴포넌트를 읽어 실행한다.
+5.App 컴포넌트가 웹 브라우저 화면에 표시된다.
+
+>특별한 이유가 없다면 리액트 애플리케이션의 시작 컴포넌트는 보통 App 이다.
+다른 컴포넌트를 루트 컴포넌트로 사용하고 싶다면 
+createRoot() 함수의 render() 함수에 App 컴포넌트 대신에 원하는 컴포넌트를 넣으면 된다.
+
+
+*App.tsx
+
+>리액트 파일 중 첫 글자가 대문자로 시작하고 확장자가 .tsx나 .jsx인 파일을 "컴포넌트" 라고 한다.
+일반적으로 확장자 앞에 붙은 이름을 사용해 해당 컴포넌트 파일을 지칭한다.
+예를들어 App.tsx 파일은 "App 컴포넌트" 라고 한다.
+
+
+>App 컴포넌트는 애플리케이션 시작점이 되는 가장 중요한 컴포넌트로, 이를 "루트 컴포넌트"라고 한다.
+리액트 애플리케이션은 루트 컴포넌트를 중심으로 하위 컴포넌트들이 가지처럼 뻗어나가는 "트리 구조"를 이룬다.
+
+
