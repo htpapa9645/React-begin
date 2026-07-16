@@ -7,7 +7,9 @@ jsx가 없던 시절에는 리액트에서 ui를 만들기 위해 createElement(
 
 샘플코드)
 export default function App(){
-	<div>						-> jsx
-		<h1>hellow React</h1>		-> 함수정의나 return 구문은 자바스크립트이다.
-	</div>
+	return (
+		<div>					-> jsx
+			<h1>hellow React</h1>		-> 함수정의나 return 구문은 자바스크립트이다.
+		</div>
+	);
 }
