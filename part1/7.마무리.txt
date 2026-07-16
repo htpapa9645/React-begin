@@ -1,1 +1,38 @@
 1.리액트 개요
+
+>ui를 구축할 때 가장 널리 사용하는 자바스크립트 기반 프런트앤드 라이브러리
+
+>핵심철학
+ : 컴포넌트 기반 = ui를 작고 재사용 가능한 블록으로 분리
+ : 가상 dom = 실제 dom 대신 변경된 부분만 업데이트
+ : 선언형 프로그래밍 = '무엇을' 보여줄지만 작성하면 '어떻게'는 리액트가 처리
+
+>주요 특징
+ : 단방향 데이터 흐름 = 부모 -> 자식으로 흐르는 예측 가능한 구조
+ : jsx문법 = html과 유사한 코드 작성 기능
+ : 상태관리도구 = useState, useReducer, Context API 등 제공
+ : 풍부한 생태계 = Next.js, Redux, React Native 등과 쉽게 연동
+
+2.개발 환경 설정
+
+>Node.js = nodejs.org에서 최신 LTS 버전 다운로드 및 설치
+
+>VSCode : code.visualstudio.com 다운로드 및 설치 > 테마 및 익스텐션 설정
+
+>크롬 브라우저 : React Developer Tools 설치로 디버깅 강화
+
+3.애플리케이션 설정
+
+>보일러플레이트 선택 : 빠른 개발 환경과 최신 트랜드를 반영한 Vite 권장
+
+>생성과정
+ : VSCode에서 실습 폴더 선택
+ : 터미널에서 npm create vite@latest . 명령어 입력
+ : React > TypeScript 선택
+ : npm install과 npm run dev 명령어로 개발 서버 실행
+
+>기본 구조
+ : pakage.json = 프로젝트의 정보, 실치된 패키지(의존성), 실행 스크립트 등을 관리하는 설정 파일
+ : index.html = 애플리케이션의 기본 html 구조를 정의한 파일, id="root"인 <div> 요소가 리액트 애플리케이션이 표시될 위치가 됨.
+ : main.tsx = 컴포넌트를 루트 dom 요소에 랜더링하는 진입점 역할을 하는 파일
+ : App.css = 리액트 애플리케이션의 루트 컴포넌트, 실제로 화면에 표시할 ui를 구성하는 최상위 컴포넌트.
