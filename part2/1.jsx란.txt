@@ -6,10 +6,10 @@ jsx 는 html처럼 보이지만 실제로는 html이 아니며, 웹브러우저�
 jsx가 없던 시절에는 리액트에서 ui를 만들기 위해 createElement() 함수를 직접 사용해야 했다.
 
 샘플코드)
-export default function App(){
+export default function App(){			-> 함수정의나 return 구문은 자바스크립트이다.
 	return (
-		<div>					-> jsx
-			<h1>hellow React</h1>		-> 함수정의나 return 구문은 자바스크립트이다.
+		<div>								-> jsx
+			<h1>hellow React</h1>		-> jsx
 		</div>
 	);
 }
