@@ -1,0 +1,40 @@
+[클래스 컴포넌트]
+
+>클래스 컴포넌트는 ES6에서 도입된 클래스 문법을 사용해 컴포넌트를 정의합니다.
+클래스 컴포넌트는 리액트의 Component 클래스를 상속받아 생성하며, 반드시 render() 메서드를 포함해야한다.
+그리고 render() 메서드 안에서 컴포넌트가 화면에 보여줄 ui를 반환한다.
+
+형식)
+import { Component } from 'react';
+
+class [컴포넌트 이름] extends Component {
+	// jsx를 반환하는 render() 메서드
+	render(){
+		return(...);
+	}
+}
+export default [컴포넌트 이름]
+
+
+*클래스 컴포넌트 예제 실행 
+-> part3/vite-react  프로젝트 App.tsx 수정 및 실행
+
+
+
+*클래스 문법
+>클래스는 기존의 프로토타입 기반 객체 생성 방식을 더 직관적으로 개선한 객체 지향 스타일의 문법으로 ES6에서 도입되었다.
+기본 구조는 아래와 같다.
+
+// 클래스 정의
+class ClassName{
+	constructor(name, age){
+		// 생성자 메서드 (객체 초기화)
+		this.property1 = value1; // 객체 속성
+		this.property2 = value2; 
+	}
+	method(){
+		// 메서드 정의
+	}
+}
+const instance = new ClassName(arguments); // 객체 생성
+instance method(); // 메서드 호출
