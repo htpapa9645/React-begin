@@ -12,8 +12,8 @@
 
 
 //************* 함수형 컴포넌트 예제 *************//
-export default function App(){
-  return(
+export default function App(){ // App 컴포넌트를 함수형 컴포넌트로 선언한다. 선언할때 export default 키워드를 사용하면 이 컴포넌트를 다른 파일에서 쉽게 불러와 사용할 수 있다.컴포넌트의 이름은 "파스칼 케이스"를 따라 작성한다.
+  return( // return 문 안에는 리액트에서 사용하는 jsx문법을 작성한다. 여기서는 프래그먼트 단축 문법인 <>...</> 을 사용하여 <h1> 요소를 감싼다. 프래그먼트는 여러 요소를 감쌀 때 불필요한 html 태그를 추가하지 않고 그룹화할 수 있게 해준다.
     <>
       <h1>Hello, Jang Min Woo, Funciton Component</h1>
     </>
