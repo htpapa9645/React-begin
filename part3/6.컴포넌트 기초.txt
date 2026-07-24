@@ -1,0 +1,56 @@
+[컴포넌트 확장자]
+
+>리액트에서는 컴포넌트를 작성할 때 .js .jsx .ts .tsx 같은 파일 확장자를 사용할 수 있다.
+하지만 확장자에 따라 jsx 문법을 사용할 수 있는지 여부가 달라진다.
+
+확장자		|	CRA		|	Vite
+
+js		|	jsx지원	|	jsx지원
+
+jsx		|	jsx지원	|	jsx지원
+
+ts		|	jsx지원안함	|	jsx지원안함
+
+tsx		|	jsx지원	|	jsx지원
+
+관용적으로 자바스크립트 기반 리액트 애플리케이션에서는 .jsx 타입스크립트 기반의 리액트 애플리케이션에서는 jsx 문법을 사용할 수 있는 tsx 확장자를 사용한다.
+
+
+[컴포넌트 정의]
+
+* 함수형 컴포넌트 정의
+
+예)
+export default function App(){
+	return(
+		<>
+			<h1>Hello, Function Component</h1>
+		</>
+	);
+}
+
+
+이를 함수 선언문 방식이라고 하며, 컴포넌트는 function 키워드로 정의하고 jsx를 return 문 안에 작성한다.
+그리고 이 컴포넌트를 다른 파일에서 사용할 수 있도록 내보내기 (export) 한다.
+
+
+컴포넌트를 내보낼 때는 두 가지 방식 중 하나를 선택할수있다.
+
+export 키워드만 사용하면 컴포넌트를 불러오는 쪽에서 중괄호 {} 를 사용해 불러와야 한다.
+
+반면에 export default 키워드를 사용하면 중괄호 없이!! 바로 불러올 수 있다.
+
+또한!! export 를 사용하면 하나의 파일에서 여러 컴포넌트를 내보 낼 수 있지만, 
+
+	export default는 한 파일에서 하나의 기본 컴포넌트만 내보낼 수 있다.
+
+예)
+import { App } from './App.tsx'; // export function App() { ... } 사용 시
+import App from './App.tsx'; // export default function App() { ... } 사용 시
+
+컴포넌트를 정의하고 내보내는 방식은 프로젝트 구조나 협업 스타일에 따라 달라질수 있다.
+하지만 초보자라면 먼저 export default 방식을 익히고, 필요할 때 export 방식도 함께 사용하는 것이 좋다. 
+
+흠.. 이게 무슨말인지...아직 감 안옴
+
+* 다른 정의 방식
