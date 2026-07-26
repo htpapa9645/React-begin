@@ -54,11 +54,28 @@ function Header() { // 1)
   );
 }
 
+function Main(){ // 3)
+  return(
+    <>
+      <h1>Hello, Function Component, This is MAIN</h1>
+    </>
+  );
+}
+
+function Footer(){ // 4)
+  return(
+    <>
+      <h1>Footer</h1>
+    </>
+  );
+}
+
 export default function App(){
   return(
     <>
       <Header /> {/* 2) */}
-      <h1>Hello, Function Component</h1>
+      <Main /> {/* 5) */}
+      <Footer /> {/* 6) */}
     </>
   );
 }
@@ -66,4 +83,8 @@ export default function App(){
 /*
   1) Header라는 함수형 컴포넌트를 정의하고 return 문 안에 jsx를 작성해 화면에 표시할 내용구성.
   2) App 컴포넌트 내부에서 Header 컴포넌트를 html태그처럼 <Header /> 형태로 사용한다.
+  3) Main 컴포넌트 반환
+  4) Footer 컴포넌트 반환
+  5) App 컴포넌트에서 <Main /> 을 사용하면 Main 컴포넌트가 실행되어 jsx가 반환된다.
+  6) <Footer /> 도 같은 방식으로 실행되어 jsx가 화면에 랜더링 된다.
 */
