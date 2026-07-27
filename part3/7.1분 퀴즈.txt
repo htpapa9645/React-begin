@@ -1,0 +1,75 @@
+04. 리액트에서 컴포넌트 파일을 만들 때 지원하지 않는 확장자는 무엇인가요?
+1.js
+2.ts
+3.tsx
+4.json
+
+-> 4
+
+
+05.타입스크립트 기반의 리액트 애플리케이션에서 사용하는 컴포넌트 확장자는 무엇인가요?
+1.jsx
+2.tsx
+3.html
+4.css
+
+-> 2
+
+
+06.다음 중 export default를 사용해 외부로 내보낸 컴포넌트를 불러오는 방법은 무엇인가요?
+1.import { App } from './App.tsx';
+2.import App from './App.tsx';
+3.require('./App.tsx');
+4.fetch('./App.tsx');
+
+-> 2
+
+
+07.다음 중 함수형 컴포넌트를 정의하는 방법으로 올바른 것은 무엇인가요?
+1.
+function App() {
+	return <h1>Hello</h1>
+}
+
+2.
+const App = function(){
+	return <h1>Hello</h1>
+}
+
+3.const App = () => {
+	return <h1>Hello</h1>
+}
+
+4.모두 가능하다.
+
+
+-> 4
+
+
+08.여러 컴포넌트를 추가해 화면을 구성할 때 App.tsx에서 Header 컴포넌트를 사용하려면 어떤 
+코드를 작성해야 하나요?
+1.<Header />
+2.<header></header>
+3.Header();
+4.document.createElement('Header');
+
+-> 1
+
+
+09.컴포넌트 파일을 분리할 때 보통 어디에 저장하는 것이 일반적인가요?
+1.node_modules 폴더
+2.public/assets 폴더
+3.src/components 폴더
+4.dist 폴더
+
+-> 3
+
+
+10.리액트의 컴포넌트 트리에 대한 설명 중 잘못된 것은 무엇인가요?
+1.부모-자식 관계의 계층 구조를 가진다.
+2.데이터는 주로 부모에서 자식으로 전달된다.
+3.동일한 컴포넌트를 여러 위치에서 재사용할 수 있다.
+4.컴포넌트 간에는 데이터가 자유롭게 양방향으로 전달된다.
+
+-> 4
+
