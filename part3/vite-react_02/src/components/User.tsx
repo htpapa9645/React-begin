@@ -63,17 +63,75 @@
 
 
 // 부모컴포넌트로 내려받은 props안의 userObj까지 구조 분해 할당
+// export default function User(
+//                                 { userObj : { name, age }, clickHandler } : {
+//                                     userObj: { name: string, age: number },
+//                                     clickHandler: () => void
+//                                 }
+// ){
+//     return(
+//         <>
+//             <p>{ name }</p>
+//             <p>{ age }</p>
+//             <button onClick={ clickHandler }>완전구조분해할당</button>
+//         </>
+//     );
+// }
+
+// 함수 내부에서의 구조 분해 할당..
+// export default function User(
+//                                 props: {
+//                                     userObj: { name:string, age: number },
+//                                     clickHandler: () => void,
+//                                 }
+// ){
+//     const {
+//             userObj: { name, age },
+//             clickHandler
+//     } = props;
+
+//     return (
+//         <>
+//             <p>name : { name }</p>
+//             <p>age : { age }</p>
+//             <button onClick={ clickHandler }>함수내부에서 구조분해 할당 1</button>
+//         </>
+//     );
+// }
+
+// interface 타입정의
+// interface UserProps {
+//     userObj: { name: string, age: number },
+//     clickHandler: () => void
+// }
+
+// export default function User(props: UserProps){
+//     const {
+//         userObj: { name, age },
+//         clickHandler,
+//     } = props;
+//     return(
+//         <>
+//             <p>name: { name }</p>
+//             <p>age: { age }</p>
+//             <button onClick={ clickHandler }>interface타입정의</button>
+//         </>
+//     );
+// }
+
+// src/props.d.ts 파일에 UserProps를 별도 정의한 후 사용
 export default function User(
-                                { userObj : { name, age }, clickHandler } : {
-                                    userObj: { name: string, age: number },
-                                    clickHandler: () => void
-                                }
+                                props: UserProps
 ){
-    return(
+    const {
+        userObj: { name, age },
+        clickHandler
+    } = props;
+    return (
         <>
-            <p>{ name }</p>
-            <p>{ age }</p>
-            <button onClick={ clickHandler }>완전구조분해할당</button>
+            <p>name : { name }</p>
+            <p>age : { age }</p>
+            <button onClick={ clickHandler }>타입 별도 정의후</button>
         </>
     );
 }
