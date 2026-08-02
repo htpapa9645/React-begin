@@ -15,6 +15,10 @@ export default function App(){
     alert("클릭했슈");
   };
 
+ const clickHandler2 = () => {
+    alert("클릭했슈2");
+ };
+
   return(
     <>
       <Header />
@@ -23,7 +27,7 @@ export default function App(){
       <hr />
       {/* <User name="철수" age={20} /> */}
       {/* <User userObj={ userObj } /> */}
-      <User userObj={ userObj }  clickHandler={ clickHandler } />
+      <User userObj={ userObj }  clickHandler={ clickHandler2 } />
     </>
   );
 }
