@@ -45,18 +45,35 @@
 // }
 
 // 부모컴포넌트로 내려받은 props를 구조 분해 할당
-export default function User(
-                                { userObj, clickHandler } : { 
-                                    userObj: { name: string, age: number,},
-                                    clickHandler: () => void,
-                                }
+// export default function User(
+//                                 { userObj, clickHandler } : { 
+//                                     userObj: { name: string, age: number,},
+//                                     clickHandler: () => void,
+//                                 }
 
+// ){
+//     return (
+//         <>
+//             <p>name: { userObj.name }</p>
+//             <p>age: { userObj.age }</p>
+//             <button onClick={ clickHandler } >구조분해할당 클릭</button>
+//         </>
+//     );
+// }
+
+
+// 부모컴포넌트로 내려받은 props안의 userObj까지 구조 분해 할당
+export default function User(
+                                { userObj : { name, age }, clickHandler } : {
+                                    userObj: { name: string, age: number },
+                                    clickHandler: () => void
+                                }
 ){
-    return (
+    return(
         <>
-            <p>name: { userObj.name }</p>
-            <p>age: { userObj.age }</p>
-            <button onClick={ clickHandler } >구조분해할당 클릭</button>
+            <p>{ name }</p>
+            <p>{ age }</p>
+            <button onClick={ clickHandler }>완전구조분해할당</button>
         </>
     );
 }
