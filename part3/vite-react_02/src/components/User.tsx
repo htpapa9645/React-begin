@@ -29,11 +29,17 @@
 
 
 // 타입스크립트 예) 부모컴포넌트에서 <User userObj={userObj} /> 이렇게 전달했을때..
-export default function User( props: { userObj: { name: string,  age: number } }){
+export default function User( 
+    props: { 
+                userObj: { name: string,  age: number, },
+                clickHandler: () => void,
+    }
+){
     return(
         <>
             <p>name : { props.userObj.name }</p>
             <p>age : { props.userObj.age }</p>
+            <button onClick={ props.clickHandler }>클랙했슈</button>
         </>
     );
 }

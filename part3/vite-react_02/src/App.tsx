@@ -6,9 +6,15 @@ import User from "./components/User";
 
 export default function App(){
   const userObj = {
-    name: "철수",
-    age: 20,
+    name: "민우",
+    age: 42,
   };
+  
+  const clickHandler = function(){
+    //console.log("클릭했슈");
+    alert("클릭했슈");
+  };
+
   return(
     <>
       <Header />
@@ -16,7 +22,8 @@ export default function App(){
       <Footer />
       <hr />
       {/* <User name="철수" age={20} /> */}
-      <User userObj={ userObj } />
+      {/* <User userObj={ userObj } /> */}
+      <User userObj={ userObj }  clickHandler={ clickHandler } />
     </>
   );
 }
