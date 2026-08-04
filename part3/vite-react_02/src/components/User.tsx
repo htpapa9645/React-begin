@@ -120,18 +120,55 @@
 // }
 
 // src/props.d.ts 파일에 UserProps를 별도 정의한 후 사용
-export default function User(
-                                props: UserProps
-){
-    const {
-        userObj: { name, age },
-        clickHandler
-    } = props;
+// export default function User(
+//                                 props: UserProps
+// ){
+//     const {
+//         userObj: { name, age },
+//         clickHandler
+//     } = props;
+//     return (
+//         <>
+//             <p>name : { name }</p>
+//             <p>age : { age }</p>
+//             <button onClick={ clickHandler }>타입 별도 정의후</button>
+//         </>
+//     );
+// }
+
+
+// 전개연산자 사용시 아래와 같이 수정
+// export default function User(props: UserProps){
+//     const { name, age, clickHandler } = props;
+//     return (
+//         <>
+//             <p>name: {name}</p>
+//             <p>age: {age}</p>
+//             <button onClick={clickHandler}>클릭</button>
+//         </>
+//     );
+// }
+
+// props > children 사용해보기
+// export default function User(props: {children:React.ReactNode}){
+//     return (
+//         <>{props.children}</>
+//     );
+// }
+
+// props > children 구조분해할당하여 사용해보기
+// export default function User({children}: {children: React.ReactNode}){
+//     return (
+//             <>{children}</>
+//     );
+// }
+
+// props > children 에 title 도 넘겨보기
+export default function User({children, title}: {children: React.ReactNode, title:string}){
     return (
-        <>
-            <p>name : { name }</p>
-            <p>age : { age }</p>
-            <button onClick={ clickHandler }>타입 별도 정의후</button>
-        </>
+            <>
+                {children}
+                <h1>{title}</h1>
+            </>
     );
 }

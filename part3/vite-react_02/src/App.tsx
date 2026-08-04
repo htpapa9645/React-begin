@@ -27,7 +27,18 @@ export default function App(){
       <hr />
       {/* <User name="철수" age={20} /> */}
       {/* <User userObj={ userObj } /> */}
-      <User userObj={ userObj }  clickHandler={ clickHandler2 } />
+      {/* <User userObj={ userObj }  clickHandler={ clickHandler2 } /> */}
+      {/* <User {...userObj} clickHandler={clickHandler2} /> */}
+      {/* <User>
+        <p>children01</p>
+        <p>children02</p>
+        <p>children03</p>
+      </User> */}
+      <User title="제목도 넘겨보자">
+        <p>children01</p>
+        <p>children02</p>
+        <p>children03</p>
+      </User>
     </>
   );
 }
