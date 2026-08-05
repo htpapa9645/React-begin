@@ -39,6 +39,8 @@ export default function App(){
         <p>children02</p>
         <p>children03</p>
       </User>
+      {/* 이벤트 연습 */}
+      <button onClick={()=>{alert('button click');}}>click</button>
     </>
   );
 }
