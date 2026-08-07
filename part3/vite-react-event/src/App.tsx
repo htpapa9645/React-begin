@@ -1,9 +1,51 @@
-import Button from "./components/Button";
+// import Button from "./components/Button";
 
+// export default function App(){
+//   return(
+//     <>
+//       <Button onFive={ () => { alert('onFive'); } } />
+//     </>
+//   );
+// }
+
+
+// 이벤트 핸들러 > 인라인 핸들러
+// export default function App() {
+//   return (
+//     <>
+//       <button
+//         onClick={() => {
+//           alert("Button clicked");
+//         }}
+//       >
+//         click
+//       </button>
+//     </>
+//   );
+// }
+
+
+// 이벤트 핸들러 > 함수참조 핸들러
+// export default function App() {
+//   const clickHandler = () => {
+//     alert("Button clicked");
+//   };
+//   return (
+//     <>
+//       {/* <button onClick={clickHandler}>click</button> */}
+//       <button onClick={clickHandler()}>click</button> {/* 잘못작성된 예 함수가 바로 실행된다. */}
+//     </>
+//   );
+// }
+
+// 함수참조 방식으로는 매개변수를 전달할수없다 > 문제점 예
 export default function App(){
+  const clickHandler = (msg: string) => {
+    alert(msg);
+  };
   return(
     <>
-      <Button onFive={ () => { alert('onFive'); } } />
+      <button onClick={() => { clickHandler('hello'); }}>click</button>
     </>
   );
 }
