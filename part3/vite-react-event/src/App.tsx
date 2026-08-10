@@ -90,17 +90,39 @@
 
 
 // 이벤트 객체와 매개변수
-export default function App(){
-  const clickHandler = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent> ,
-    msg: string,
-  ) => {
-    console.log(e);
-    alert(msg);
+// export default function App(){
+//   const clickHandler = (
+//     e: React.MouseEvent<HTMLButtonElement, MouseEvent> ,
+//     msg: string,
+//   ) => {
+//     console.log(e);
+//     alert(msg);
+//   };
+//   return(
+//     <>
+//       <button onClick={(e) => clickHandler(e, 'hello')}>click</button>
+//     </>
+//   );
+// }
+
+
+// 이벤트 전파 > 캡쳐링 > 부모에서 자식요소로 이벤트 전파
+export default function App() {
+  const handleCapture = () => {
+    console.log("Parent");
   };
-  return(
-    <>
-      <button onClick={(e) => clickHandler(e, 'hello')}>click</button>
-    </>
+  const handleBubble = () => {
+    console.log("Child");
+  };
+  return (
+    <div
+      onClickCapture={handleCapture}
+      style={{ padding: "50px", backgroundColor: "#f8f8f8" }}
+    >
+      Parent
+      <button onClick={handleBubble} style={{ marginTop: "20px" }}>
+        Click Me
+      </button>
+    </div>
   );
 }
