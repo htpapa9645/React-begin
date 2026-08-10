@@ -107,6 +107,27 @@
 
 
 // 이벤트 전파 > 캡쳐링 > 부모에서 자식요소로 이벤트 전파
+// export default function App() {
+//   const handleCapture = () => {
+//     console.log("Parent");
+//   };
+//   const handleBubble = () => {
+//     console.log("Child");
+//   };
+//   return (
+//     <div
+//       onClickCapture={handleCapture}
+//       style={{ padding: "50px", backgroundColor: "#f8f8f8" }}
+//     >
+//       Parent
+//       <button onClick={handleBubble} style={{ marginTop: "20px" }}>
+//         Click Me
+//       </button>
+//     </div>
+//   );
+// }
+
+// 이벤트 전파 > 버를링 > 자식요소에서 부모요소로 이벤트 전파
 export default function App() {
   const handleCapture = () => {
     console.log("Parent");
@@ -116,11 +137,11 @@ export default function App() {
   };
   return (
     <div
-      onClickCapture={handleCapture}
+      onClick={handleCapture}
       style={{ padding: "50px", backgroundColor: "#f8f8f8" }}
     >
       Parent
-      <button onClick={handleBubble} style={{ marginTop: "20px" }}>
+      <button onClick={handleBubble} style={{ margin: "20px" }}>
         Click Me
       </button>
     </div>
