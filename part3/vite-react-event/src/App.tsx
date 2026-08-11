@@ -128,22 +128,57 @@
 // }
 
 // 이벤트 전파 > 버를링 > 자식요소에서 부모요소로 이벤트 전파
+// export default function App() {
+//   const handleCapture = () => {
+//     console.log("Parent");
+//   };
+//   const handleBubble = () => {
+//     console.log("Child");
+//   };
+//   return (
+//     <div
+//       onClick={handleCapture}
+//       style={{ padding: "50px", backgroundColor: "#f8f8f8" }}
+//     >
+//       Parent
+//       <button onClick={handleBubble} style={{ margin: "20px" }}>
+//         Click Me
+//       </button>
+//     </div>
+//   );
+// }
+
+// 이벤트 전파 > 이벤트 전파 막기 stopPropagation() 사용. 이벤트 객체에 있는 메소드..
+// export default function App(){
+//   const handleCapture = () => {
+//     console.log('Parent');
+//   };
+//   const handleBubble = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+//     e.stopPropagation();
+//     console.log('Child');
+//   };
+//   return (
+//     <div
+//       onClick={handleCapture}
+//       style={{ padding: '50px', backgroundColor: '#f8f8f8'}}
+//     >Parent
+//       <button onClick={handleBubble} style={{ marginTop: '20px' }}>Click Me</button>
+//     </div>
+//   );
+// }
+
+
+// 이벤트 전파 > 이벤트 기본 동작 막기
 export default function App() {
-  const handleCapture = () => {
-    console.log("Parent");
-  };
-  const handleBubble = () => {
-    console.log("Child");
-  };
   return (
-    <div
-      onClick={handleCapture}
-      style={{ padding: "50px", backgroundColor: "#f8f8f8" }}
+    <form 
+      onSubmit={(e) => {
+          e.preventDefault();
+        }}
     >
-      Parent
-      <button onClick={handleBubble} style={{ margin: "20px" }}>
-        Click Me
-      </button>
-    </div>
+      <input type='text' name='email' />
+      <input type='password' />
+      <button type='submit'>전송</button>
+    </form>
   );
 }
