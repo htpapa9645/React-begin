@@ -16,34 +16,51 @@
 // }
 
 
-import './App.css';
-import Child from './components/Child';
+// import './App.css';
+// import Child from './components/Child';
+// import styles from './App.module.css';
+// import classNames from 'classnames';
+
+// // 스타일을 인라인에 직접 작성
+// export default function App(){
+//   // classnames 라이브러리 설치 및 사용
+//   const btnClass = classNames('btn', 'primary');
+//   console.log(btnClass);
+
+//   // is-active 사용
+//   const isActive = true;
+
+//   return(
+//     <>
+//       <h1 style={{
+//         backgroundColor: 'red',
+//         color: 'yellow',
+//         fontSize: '16px',
+//         padding: '10px',
+//       }}>
+//         인라인 스타일
+//       </h1>
+//       <button className='btn'>App Button1</button>
+//       <Child />
+//       <button className={styles.btn}>App Button2</button>
+//       <button className={classNames('btn', {'is-active': isActive})}>App Button3</button>
+//     </>
+//   );
+// }
+
+// CSS 모듈에서 사용하기
 import styles from './App.module.css';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
+import Child from './components/Child';
 
-// 스타일을 인라인에 직접 작성
 export default function App(){
-  // classnames 라이브러리 설치 및 사용
-  const btnClass = classNames('btn', 'primary');
-  console.log(btnClass);
-
-  // is-active 사용
   const isActive = true;
-
-  return(
+  const cx = classNames.bind(styles);
+  return (
     <>
-      <h1 style={{
-        backgroundColor: 'red',
-        color: 'yellow',
-        fontSize: '16px',
-        padding: '10px',
-      }}>
-        인라인 스타일
-      </h1>
-      <button className='btn'>App Button1</button>
+      <button className={cx({ btn: true, 'is-active': isActive })}>
+        App Button</button>
       <Child />
-      <button className={styles.btn}>App Button2</button>
-      <button className={classNames('btn', {'is-active': isActive})}>App Button3</button>
     </>
   );
 }
