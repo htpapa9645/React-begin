@@ -3,13 +3,10 @@ import { createRoot } from 'react-dom/client'
 // import './index.css' 삭제
 import App from './App.tsx'
 import './index.css'; // tailwindcss 가 적용된 index.css 를 다시 추가함
-import { App2 } from './App.tsx'
-import { App3 } from './App.tsx'
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
-    <App2 />
-    <App3 />
   </StrictMode>,
 )

@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+body {
+    padding: 30px;
+}
+
+.bg {
+    width: 640px;
+    height: 360px;
+    /* background: url('/assets/images/ocean.jpg') no-repeat center center; */
+    background: url('../assets/images/ocean.jpg') no-repeat center center;
+}

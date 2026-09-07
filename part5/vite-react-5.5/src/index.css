@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@font-face {
+    font-family: 'SfHambakneun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_HambakSnow.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+.SfHambakneun {
+    font-family: 'SfHambakneun', sans-serif;
+}
+
+body {
+    padding: 30px;
+}
+
+.bg {
+    width: 640px;
+    height: 360px;
+    /* background: url('/assets/images/ocean.jpg') no-repeat center center; */
+    background: url('../assets/images/ocean.jpg') no-repeat center center;
+}
+
+.namum-pen-script-regular {
+    font-family: 'Nanum Pen Script', cursive;
+    font-weight: 400;
+    font-style: normal;
+}
