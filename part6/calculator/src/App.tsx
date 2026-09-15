@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Decimal from "decimal.js";
 
 interface CalculatorState {
   currentNumber : string, // 현재 입력 중인 숫자
@@ -44,6 +45,8 @@ export default function App() {
   ) => {
       //console.log(event.currentTarget.value);
       
+      if(state.currentNumber === '0') return;
+
       // 현재 클릭한 연산 기호 가져오기
       const operator = event.currentTarget.value;
       // 현재 출력칸에 표시된 숫자를 숫자형으로 변환
@@ -55,16 +58,20 @@ export default function App() {
         // 연산 기호에 따라 연산 수행
         switch (state.operation){
           case '+' :
-            result = prev + current;
+            // result = prev + current;
+            result = new Decimal(prev).plus(current).toNumber();
             break;
           case '-' :
-            result = prev - current;
+            // result = prev - current;
+            result = new Decimal(prev).minus(current).toNumber();
             break;
           case '*' :
-            result = prev * current;
+            // result = prev * current;
+            result = new Decimal(prev).times(current).toNumber();
             break;
           case '/' :
-            result = prev / current;
+            // result = prev / current;
+            result = new Decimal(prev).dividedBy(current).toNumber();
             break;
         }
 
@@ -84,6 +91,11 @@ export default function App() {
             isNewNumber : true,
           });
         }
+      } else if (state.currentNumber !== '' && operator === '='){
+        setState({
+          ...state,
+          isNewNumber : true,
+        });
       } else {
         setState({
             currentNumber : '',
@@ -96,12 +108,25 @@ export default function App() {
 
   // C 버튼 클릭 처리 함수 : 모든 상태 초기화
   const handleClear = () => {
-      console.log('clear');
+      //console.log('clear');
+      setState({
+        currentNumber : '0',
+        previousNumber : '',
+        operation : null,
+        isNewNumber : true,
+      });
   };
 
   // 소수점 버튼 클릭 처리 함수 : 현재 숫자에 소수점이 없을 경우에만 추가
   const handleDot = () => {
-    console.log('dot');
+    // console.log('dot');
+    if(!state.currentNumber.includes('.')) {
+      setState({
+        ...state,
+        currentNumber : state.currentNumber + '.' ,
+        isNewNumber : false,
+      });
+    }
   };
 
   return (
