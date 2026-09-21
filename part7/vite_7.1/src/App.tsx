@@ -77,3 +77,58 @@ export function App6(){
     </div>
   );
 }
+
+export function App7(){
+  const isLogin = true;
+  const message = isLogin ? (
+    <>
+      <h1>환영한다.</h1>
+      <h2>오늘 기분은 어떠니?</h2>
+    </>
+  ) : (
+    <>
+      <h1>환영 못 한다.</h1>
+      <h2>오늘 기분이 안 좋다.</h2>
+    </>
+  );
+  return (
+    <div>
+      <hr style={{borderColor: 'red' }} />
+      <h1>App7</h1>
+      <div>
+      {message}
+      </div>
+    </div>
+  );
+}
+
+export function App8(){
+  const isLogin = true;
+  const message = isLogin ? <Login /> : <Logout />;
+  return (
+     <div>
+      <hr style={{borderColor: 'red' }} />
+      <h1>App8</h1>
+      <div>
+      {message}
+      </div>
+    </div>
+  );
+}
+
+export function App9(){
+  const isActive = true;
+  return (
+     <div>
+      <hr style={{borderColor: 'red' }} />
+      <h1>App9</h1>
+      <div 
+      style={{
+        fontSize : isActive ? '1rem' : '2rem',
+        fontWeight : isActive ? 'bold' : 'normal',
+        color : 'blue',
+      }}>
+      동적으로 스타일 적용하기</div>
+    </div>
+  );
+}
