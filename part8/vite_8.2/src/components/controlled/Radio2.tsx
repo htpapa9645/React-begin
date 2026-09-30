@@ -6,5 +6,15 @@ export default function Radio2() {
         color: 'red',
     });
 
-    
+    const handleRadioChange = (event : React.ChangeEvent<HTMLInputElement>) => {
+        setFormState((formState) => ({
+            ...formState,
+            [event.target.name] : event.target.value,
+        }));
+    };
+
+    return (
+        
+    );
+
 }
