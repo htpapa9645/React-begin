@@ -14,7 +14,42 @@ export default function Radio2() {
     };
 
     return (
-        
+        <>
+            <form>
+                <div> {/* 성별 그룹 */}
+                    <label>
+                        <input type='radio' name='gender' value='male'
+                            checked={formState.gender === 'male'}
+                            onChange={handleRadioChange} 
+                        />
+                        Male
+                    </label>
+                    <label>
+                        <input type='radio' name='gender' value='female'
+                            checked={formState.gender === 'female'}
+                            onChange={handleRadioChange} 
+                        />
+                        FeMale
+                    </label>
+                </div>
+                <div> {/** 색상 그룹 */}
+                    <label>
+                        <input type='radio' name='color' value='red'
+                            checked={formState.color === 'red'}
+                            onChange={handleRadioChange}
+                        />
+                        Red
+                    </label>
+                    <label>
+                        <input type='radio' name='color' value='blue'
+                            checked={formState.color === 'blue'}
+                            onChange={handleRadioChange}
+                        />
+                        Blue
+                    </label>
+                </div>
+            </form>
+        </>
     );
 
 }
