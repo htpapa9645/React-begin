@@ -8,7 +8,7 @@ export default function Textarea(){
     return (
         <form>
             <textarea value={text} onChange={handleChange} />
-            <p>입력한 텍스트 : {text}</p>
+            <p>입력한 텍스트44 : {text}</p>
         </form>
     );
 }

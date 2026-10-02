@@ -6,7 +6,8 @@ import Checkbox2 from "./components/controlled/Checkbox2";
 import Radio from "./components/controlled/Radio";
 import Radio2 from "./components/controlled/Radio2";
 import Textarea from "./components/controlled/Textarea";
-
+import Textarea2 from "./components/controlled/Textarea2";
+                                                                                                                                              
 export default function App(){
   return(
     <>
@@ -32,6 +33,9 @@ export default function App(){
 
       <hr style={{borderColor: 'red'}} />
       <Textarea />
+
+      <hr style={{borderColor: 'blue'}} />
+      <Textarea2 />
     </>
   );
 }
