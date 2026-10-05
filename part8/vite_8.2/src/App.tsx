@@ -7,6 +7,7 @@ import Radio from "./components/controlled/Radio";
 import Radio2 from "./components/controlled/Radio2";
 import Textarea from "./components/controlled/Textarea";
 import Textarea2 from "./components/controlled/Textarea2";
+import Input4 from "./components/controlled/Input4";
                                                                                                                                               
 export default function App(){
   return(
@@ -36,6 +37,9 @@ export default function App(){
 
       <hr style={{borderColor: 'blue'}} />
       <Textarea2 />
+
+      <hr style={{borderColor: 'blue'}} />
+      <Input4 />
     </>
   );
 }
