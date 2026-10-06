@@ -8,6 +8,9 @@ import Radio2 from "./components/controlled/Radio2";
 import Textarea from "./components/controlled/Textarea";
 import Textarea2 from "./components/controlled/Textarea2";
 import Input4 from "./components/controlled/Input4";
+import Input5 from "./components/controlled/Input5";
+import Input6 from "./components/controlled/Input6";
+import Input7 from "./components/controlled/Input7";
                                                                                                                                               
 export default function App(){
   return(
@@ -40,6 +43,15 @@ export default function App(){
 
       <hr style={{borderColor: 'blue'}} />
       <Input4 />
+      
+      <hr style={{borderColor: 'blue'}} />
+      <Input5 />
+
+      <hr style={{borderColor: 'blue'}} />
+      <Input6 />
+
+      <hr style={{borderColor: 'blue'}} />
+      <Input7 />
     </>
   );
 }
