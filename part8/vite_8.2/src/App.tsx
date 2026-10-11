@@ -12,11 +12,13 @@ import Input5 from "./components/controlled/Input5";
 import Input6 from "./components/controlled/Input6";
 import Input7 from "./components/controlled/Input7";
 import Checkbox3 from "./components/controlled/Checkbox3";
+import Checkbox4 from "./components/controlled/Checkbox4";
+import Radio3 from "./components/controlled/Radio3";
                                                                                                                                               
 export default function App(){
   return(
     <>
-      <Input />
+      {/* <Input />
 
       <hr style={{borderColor: 'red'}} />
       <Input2 />
@@ -55,7 +57,13 @@ export default function App(){
       <Input7 />
 
       <hr style={{borderColor: 'blue'}} />
-      <Checkbox3 />
+      <Checkbox3 /> */}
+      
+      <hr style={{borderColor: 'blue'}} />
+      <Checkbox4 />
+      
+      <hr style={{borderColor: 'blue'}} />
+      <Radio3 />
     </>
   );
 }
