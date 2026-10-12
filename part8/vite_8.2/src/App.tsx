@@ -14,6 +14,10 @@ import Input7 from "./components/controlled/Input7";
 import Checkbox3 from "./components/controlled/Checkbox3";
 import Checkbox4 from "./components/controlled/Checkbox4";
 import Radio3 from "./components/controlled/Radio3";
+import Radio4 from "./components/controlled/Radio4";
+import Radio5 from "./components/controlled/Radio5";
+import Textarea3 from "./components/controlled/Textarea3";
+import Textarea4 from "./components/controlled/Textarea4";
                                                                                                                                               
 export default function App(){
   return(
@@ -59,11 +63,23 @@ export default function App(){
       <hr style={{borderColor: 'blue'}} />
       <Checkbox3 /> */}
       
-      <hr style={{borderColor: 'blue'}} />
+      {/* <hr style={{borderColor: 'blue'}} />
       <Checkbox4 />
       
       <hr style={{borderColor: 'blue'}} />
-      <Radio3 />
+      <Radio3 /> */}
+
+      {/* <hr style={{borderColor: 'blue'}} />
+      <Radio4 /> */}
+
+      <hr style={{borderColor: 'blue'}} />
+      <Radio5 />
+      
+      <hr style={{borderColor: 'blue'}} />
+      <Textarea3 />
+ 
+      <hr style={{borderColor: 'blue'}} />
+      <Textarea4 />
     </>
   );
 }
