@@ -39,4 +39,33 @@ export default function Dynamic() {
             return undefined;
         },
     });
+
+    const { // 체크박스 필드 : 약관 동의 여부
+        value : isAgreed,
+        error : isAgreeError,
+        onChange : handleAgreeChange,
+        validate : validateAgree,
+    } = useInputEx<boolean>({
+        initialValue : false,
+        validateFn : (value) => {
+            if (!value) return '약관에 동의해야 합니다.';
+            return undefined;
+        },
+        type : 'checkbox',
+    });
+
+    const { // 라디오 버튼 필드 : 성별 선택
+        value : gender,
+        error : genderError,
+        onChange : handleGenderChange,
+        validate : validateGender,
+    } = useInputEx<string>({
+        initialValue : 'male',
+        validateFn : (value) => {
+            if (!value) return '성별을 입력하세요';
+            return '';
+        },
+        type : 'radio', 
+    });
+
 }
