@@ -68,4 +68,15 @@ export default function Dynamic() {
         type : 'radio', 
     });
 
+    const handleSubmit = (e : React.FormEvent) => { // 폼 제출시 전체 필드 유효성 검사
+        e.preventDefault();
+        if(
+            validateName() && validateEmail() && validatePhone() && validateAgree() && validateGender()
+        ){
+            console.log('폼 제출 : ', { name, email, phone, isAgreed, gender} );
+        }
+    };
+
+    
+
 }
