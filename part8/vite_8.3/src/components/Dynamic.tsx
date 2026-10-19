@@ -18,7 +18,7 @@ export default function Dynamic() {
     const { // 이메일 입력 필드 : 0 포함 여부 확인
         value : email,
         error : emailError,
-        onChange : hanleEmailChange,
+        onChange : handleEmailChange,
         validate : validateEmail,
     } = useInputEx<string>({
         initialValue : '',
@@ -77,6 +77,49 @@ export default function Dynamic() {
         }
     };
 
-    
+    return (
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label>이름 : </label>
+                <input type='text' value={name} onChange={handleNameChange} />
+                {nameError && <p style={{color: 'red'}}>{nameError}</p>}
+            </div>
+
+            <div>
+                <label>이메일 : </label>
+                <input type='email' value={email} onChange={handleEmailChange} />
+                {emailError && <p>{emailError}</p>}
+            </div>
+
+            <div>
+                <label>전화번호 : </label>
+                <input type='text' value={phone} onChange={handlePhoneChange} />
+                {phoneError && <p>{phoneError}</p>}
+            </div>
+
+            <div>
+                <label>
+                    <input type='checkbox' checked={isAgreed} onChange={handleAgreeChange} />
+                    동의합니다
+                </label>
+                {isAgreeError && <p>{isAgreeError}</p>}
+            </div>
+
+            <div>
+                <label>성별</label>
+                <label>
+                    <input type='radio' name='gender' value='male' checked={gender === 'male'} onChange={handleGenderChange} />
+                    남성
+                </label>
+                <label>
+                    <input type='radio' name='gender' value='female' checked={gender === 'female'} onChange={handleGenderChange} />
+                    여성
+                </label>
+                {genderError && <p>{genderError}</p>}
+            </div>
+            
+            <button type='submit'>제출</button>
+        </form>
+    );
 
 }
