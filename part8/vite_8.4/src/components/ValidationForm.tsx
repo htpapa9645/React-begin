@@ -10,4 +10,12 @@ export default function ValidationForm() {
         color : '#000000',
         rating : '5',
     });
+
+    const [submitStatus, setSubmitStatus] = useState('');
+
+    const handleSubmit = (e : React.FormEvent) => {
+        e.preventDefault();
+
+        
+    };
 }
