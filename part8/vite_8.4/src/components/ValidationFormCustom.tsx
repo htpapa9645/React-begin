@@ -12,7 +12,7 @@ export default function ValidationFormCustom() {
         rating : '5',
     });
 
-    const [formError, setFormError] = useState({
+    const [formErrors, setFormErrors] = useState({
         username: '',
         email: '',
         age: '',
@@ -81,17 +81,25 @@ export default function ValidationFormCustom() {
 
     const validateForm = () => {
         // 각 필드에 대해 커스텀 밸리데이션 함수 실행 : 오류 메시지 저장
-        const error = {
+        const errors = {
             username : validateUsername(formData.username),
-            
+            email : validateEmail(formData.email),
+            age : validateAge(formData.age),
+            birthdate : validateBirthdate(formData.birthdate),
+            phone : validatePhone(formData.phone),
+            website : validateWebsite(formData.website),
+            color : validateColor(formData.color),
+            rating : validateRating(formData.rating),
         };
+        // 화면에 표시하기 위해 오류 메시지를 상태에 반영
+        setFormErrors(errors);
+        return !Object.values(errors).some((msg) => msg !== '');
     };
 
     const handleSubmit = (e : React.FormEvent) => {
         e.preventDefault();
-        const form = e.target as HTMLFormElement;
-        // 모든 입력 요소의 유효성 검사 결과 확인
-        if(form.checkValidity()){
+
+        if(validateForm()){
             setSubmitStatus('success');
             console.log('폼 데이터 : ', formData);
         } else {
@@ -121,6 +129,7 @@ export default function ValidationFormCustom() {
                             pattern='[A-Za-z0-9]+'
                             title="3-20자 사이의 영문자와 숫자만 사용할 수 있습니다." />
                     </label>
+                    {formErrors.username && <div>{formErrors.username}</div>}
                 </div>
 
                 <div>
@@ -129,6 +138,7 @@ export default function ValidationFormCustom() {
                             onChange={handleChange}
                             required />
                     </label>
+                    {formErrors.email && <div>{formErrors.email}</div>}
                 </div>
 
                 <div>
@@ -139,6 +149,7 @@ export default function ValidationFormCustom() {
                             min={18}
                             max={120} />
                     </label>
+                    {formErrors.age && <div>{formErrors.age}</div>}
                 </div>
 
                 <div>
@@ -149,6 +160,7 @@ export default function ValidationFormCustom() {
                             min="1900-01-01"
                             max={new Date().toISOString().split('T')[0]} />
                     </label>
+                    {formErrors.birthdate && <div>{formErrors.birthdate}</div>}
                 </div>
 
                 <div>
@@ -157,7 +169,8 @@ export default function ValidationFormCustom() {
                             onChange={handleChange}
                             pattern='[0-9]{3}-[0-9]{4}-[0-9]{4}'
                             placeholder="010-1234-5678" />    
-                    </label>                    
+                    </label>
+                    {formErrors.phone && <div>{formErrors.phone}</div>}                    
                 </div>
 
                 <div>
@@ -166,6 +179,7 @@ export default function ValidationFormCustom() {
                             onChange={handleChange}
                             placeholder="https://example.com" />
                     </label>
+                    {formErrors.website && <div>{formErrors.website}</div>}
                 </div>
 
                 <div>
@@ -173,6 +187,7 @@ export default function ValidationFormCustom() {
                         <input type="color" name="color" value={formData.color}
                             onChange={handleChange} />
                     </label>
+                    {formData.color && <div>{formData.color}</div>}
                 </div>
 
                 <div>
@@ -184,6 +199,7 @@ export default function ValidationFormCustom() {
                             step="1" />
                         <span>{formData.rating}/10</span>
                     </label>
+                    {formData.rating && <div>{formData.rating}</div>}
                 </div>
 
                 {submitStatus === 'success' && (
