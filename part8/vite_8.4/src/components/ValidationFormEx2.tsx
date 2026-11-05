@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 
 interface ErrorValues {
     email? : string,
@@ -11,6 +11,8 @@ export default function ValidationFormEx2() {
             <Formik
                 initialValues={{ email : '', password : '',}}
                 onSubmit={(values) => { console.log(values); }}
+                validateOnChange={false} // 입력 중에는 유효성 검사 비활성화
+                validateOnBlur={true} // 포커스가 빠져나갈 때 유효성 검사 활성화
                 validate={(values) => {
                     const errors : ErrorValues = {};
                     if(!values.email){
@@ -29,8 +31,17 @@ export default function ValidationFormEx2() {
                 }}
             >
                 <Form>
-                    <Field name='email' type='email' component='input' />
-                    <Field name='password' type='password' component='input' />
+                    <Field name='email' type='email' 
+                        placeholder='이메일을 입력하세요'
+                        component='input' />
+                    <ErrorMessage name="email" component='div' />
+
+                    <Field name='password' type='password' 
+                        placeholder='비밀번호를 입력하세요'
+                        component='input' />
+                    <ErrorMessage name="password" component='div' />
+
+
                     <button type='submit'>로그인2</button>
                 </Form>
             </Formik>
