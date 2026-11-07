@@ -10,7 +10,14 @@ export default function ValidationFormEx2() {
         <>
             <Formik
                 initialValues={{ email : '', password : '',}}
-                onSubmit={(values) => { console.log(values); }}
+                onSubmit={(values, { setSubmitting }) => { 
+                    console.log(values);
+                    setSubmitting(true); // 제출 중 상태로 전환
+                    setTimeout(() => { // 서버로 요청을 보내는 대신 setTimeout()으로 지연 처리
+                        console.log('폼 데이터 : ', values);
+                        setSubmitting(false); // 제출 완료
+                    }, 1000);
+                }}
                 validateOnChange={false} // 입력 중에는 유효성 검사 비활성화
                 validateOnBlur={true} // 포커스가 빠져나갈 때 유효성 검사 활성화
                 validate={(values) => {
