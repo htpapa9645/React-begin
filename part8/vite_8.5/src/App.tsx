@@ -1,8 +1,11 @@
-import { useState } from "react";
-import Input from "./components/Input";
+import { useState, useRef } from "react";
+import Input from "./components/InputReact18";
 import Button from "./components/Button";
 
 export default function App(){
+  const userInputEl = useRef<HTMLInputElement>(null);
+  const passwordInputEl = useRef<HTMLInputElement>(null);
+
   // 아이디, 비밀번호, 오류, 로딩 상태 관리
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
