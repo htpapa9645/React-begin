@@ -15,10 +15,12 @@ export default function App(){
     e.preventDefault(); // 기본 폼 제출 동작 방지
     if(!username) { // username 필드가 비어 있으면 오류 메시지 출력
       alert('아이디를 입력하세요');
+      userInputEl.current?.focus();
       return;
     }
     if(!password) { // password 필드가 비어 있으면 오류 메시지 출력
       alert('비밀번호를 입력하세요');
+      passwordInputEl.current?.focus();
       return;
     }
   };
@@ -27,10 +29,12 @@ export default function App(){
     <div>
       <h2>로그인</h2>
       <form onSubmit={handleLogin}>
-        <Input label='아이디' type='text' id='username' value={username}
+        <Input ref={userInputEl}
+          label='아이디' type='text' id='username' value={username}
           onChange={(e) => setUsername(e.target.value)} placeholder="아이디 입력" />
 
-        <Input label='비밀번호' type='password' id='password' value={password}
+        <Input ref={passwordInputEl}
+          label='비밀번호' type='password' id='password' value={password}
           onChange={(e) => setPassword(e.target.value)} placeholder="비밀번호 입력" />
 
         <Button type="submit">로그인</Button>
